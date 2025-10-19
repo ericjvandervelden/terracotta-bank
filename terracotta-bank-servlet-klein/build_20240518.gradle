@@ -1,0 +1,83 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+        jcenter()
+        maven {
+		url "https://plugins.gradle.org/m2/"
+        }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("me.champeau.gradle:jmh-gradle-plugin:0.4.7")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
+
+
+
+group = 'com.joshcummings'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 17
+
+repositories {
+	mavenCentral()
+}
+
+
+
+
+
+
+
+
+
+dependencies {
+	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+	//implementation('org.springframework.boot:spring-boot-starter-security')
+	implementation('org.springframework.boot:spring-boot-starter-web')
+
+	implementation('org.hsqldb:hsqldb')
+	implementation('javax.mail:mail:1.4')
+	implementation('javax.servlet:jstl')
+	implementation('org.apache.tomcat.embed:tomcat-embed-jasper')
+
+	implementation('javax.xml.bind:jaxb-api')
+	implementation('com.sun.xml.bind:jaxb-core:2.3.0.1')
+	implementation('com.sun.xml.bind:jaxb-impl:2.3.0.1')
+	
+	testImplementation('org.springframework:spring-beans')
+	testImplementation('org.springframework:spring-context')
+	testImplementation('org.springframework:spring-core')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	testImplementation('org.springframework.security:spring-security-test')
+
+	testImplementation('com.github.docker-java:docker-java:3.0.14')
+	testImplementation('com.github.mike10004:littleproxy:1.1.3socksmod1')
+	testImplementation('io.github.bonigarcia:webdrivermanager:2.2.1')
+ 	testImplementation('org.mockito:mockito-core')
+	testImplementation('org.seleniumhq.selenium:selenium-java')
+	// testImplementation('org.testng:testng:6.14.3')
+
+	
+	
+	// https://mvnrepository.com/artifact/org.springframework.vault/spring-vault-core
+	implementation 'org.springframework.vault:spring-vault-core:3.1.1'
+	// https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
+	// https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
+	// https://mvnrepository.com/artifact/org.assertj/assertj-core
+	testImplementation 'org.assertj:assertj-core:3.25.3'
+	
+	
+	
+}
